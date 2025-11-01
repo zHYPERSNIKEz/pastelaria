@@ -185,6 +185,55 @@
     text-align: center;
     cursor: pointer;
 }
+.adiciona{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    & button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: fit-content;
+        margin: 5px;
+        height: 10px;
+        padding: 5px;
+        /* border: 2px solid #000000; */
+        color: black;
+        background-color: aliceblue;
+        font-size: 10px;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+}
+
+.comprar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+
+    &  .menos{
+        width: 15px;
+        height: 15px;
+        background-image: url('../assents/icones/menos-circulo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        
+    }
+
+    & .soma{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-image: url('../assents/icones/adicionar.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
 
 #container_bebida {
     padding: 10px;
