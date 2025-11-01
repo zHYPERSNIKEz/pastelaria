@@ -157,7 +157,7 @@
             }
 
             & p {
-                margin-top: 5px;
+                margin: 5px;
                 font-size: 12px;
             }
 
@@ -428,6 +428,26 @@
         justify-content: center;
     }
 
+    .adiciona button{
+        font-size: 20px;
+        width: fit-content;
+        height: 25px;
+        padding: 8px;
+        
+    }
+    .card h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+
+    }
+
+    #container_comida .container-menu .cards p {
+        font-size: 16px;
+        margin: 5px;
+    }
+
     #container_comida .card-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -435,7 +455,7 @@
     }
 
     #container_comida .container-menu .cards img {
-        width: 200px;
+        width: 220px;
         height: 120px;
     }
 
