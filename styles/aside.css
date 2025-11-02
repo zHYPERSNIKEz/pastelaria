@@ -13,6 +13,11 @@
     justify-content: space-around;
     align-items: center;
 
+    /* Adicionado para esconder por padrão */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+
     & h2 {
         font-size: 16px;
     }
@@ -38,6 +43,11 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
+}
+
+.carrinho.mostrar {
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -71,6 +81,3 @@
         height: 26px;
     }
 }
-
-
-    

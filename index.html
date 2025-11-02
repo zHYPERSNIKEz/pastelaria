@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-bt">
+<html lang="pt-BR">
 <head>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
         
                     <article class="subTitle">
         
-                        <span class="locaziacao">
+                        <span class="localizacao">
                         </span> 
                         <h2>Manoel Inácio Lucena, 1142</h2>
         
@@ -87,8 +87,8 @@
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
-                                <h2>Pasteis 
-                                    todos os sabores
+                                <h2>Pastéis 
+                                    Simples
                                 </h2>
                             </figcaption>
                         </figure>
@@ -102,7 +102,7 @@
                         <figure>
                             <img src="assents/img/supremo_burger.png" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
-                                <h2>Pasteis Especiais</h2>
+                                <h2>Pastéis Especiais</h2>
                             </figcaption>
                         </figure>
                         <p>R$ 9,00</p>
@@ -115,7 +115,7 @@
                         <figure>
                             <img src="assents/img/supremo_burger.png" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
-                                <h2>Pasteis Especiais</h2>
+                                <h2>Pastéis Especiais</h2>
                             </figcaption>
                         </figure>
                         <p>R$ 12,00</p>
@@ -128,7 +128,7 @@
                         <figure>
                             <img src="assents/img/santo_kids.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
-                                <h2 id="pasteis-sabores-title">Pasteis<br>2 sabores</h2>
+                                <h2 id="pasteis-sabores-title">Pastéis<br>2 sabores</h2>
                             </figcaption>
                         </figure>
                         <p>R$ 8,00</p>
@@ -219,7 +219,7 @@
                         <figure>
                             <img src="assents/img/sucos.png" alt="imagem de sucos naturais" loading="lazy">
                             <figcaption>
-                                <h2 class="title-small-nowrap">Sucos Naturias</h2>
+                                <h2 class="title-small-nowrap">Sucos Naturais</h2>
                             </figcaption>
                         </figure>
                         <div class="adiciona">
@@ -293,7 +293,7 @@
 
 
     <aside class="carrinho">
-        <h2>Ir para carinho</h2>
+        <h2>Ir para carrinho</h2>
         <a href="paginas/compras.html">
             <button>
                 <!-- <h3>IR</h3> -->
@@ -302,6 +302,54 @@
 
         </a>
     </aside>
+
+
+     <!-- Modal para seleção de itens -->
+
+
+                <!-- Pasteis Simples -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal">
+            <button class="fechar">X</button>
+            <h2>Personalize seu pedido</h2>
+            
+            <div class="item-info">
+                <img src="assents/img/brejoburguer.jpeg" alt="Imagem do item">
+                <h3>Pastel de Carne</h3>
+            </div>
+
+            <div class="opcoes">
+                <h4>Escolha os sabores e quantidades:</h4>
+                <div class="sabor-item" data-sabor="Carne">
+                    <span>Carne</span>
+                    <div class="quantidade">
+                        <button class="menos">-</button>
+                        <span class="qtd">0</span>
+                        <button class="mais">+</button>
+                    </div>
+                </div>
+                <div class="sabor-item" data-sabor="Queijo">
+                    <span>Queijo</span>
+                    <div class="quantidade">
+                        <button class="menos">-</button>
+                        <span class="qtd">0</span>
+                        <button class="mais">+</button>
+                    </div>
+                </div>
+                <div class="sabor-item" data-sabor="Frango">
+                    <span>Frango</span>
+                    <div class="quantidade">
+                        <button class="menos">-</button>
+                        <span class="qtd">0</span>
+                        <button class="mais">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="adicionar-carrinho">Adicionar ao carrinho</button>
+        </div>
+    </div>
+
 
     <footer>
         <div class="footer-content">
@@ -318,15 +366,18 @@
     function adjustPasteis2saboresTitle() {
         const title = document.getElementById('pasteis-sabores-title');
         if (window.innerWidth > 700) {
-            title.innerHTML = 'Pasteis 2 sabores';
+            title.innerHTML = 'Pastéis 2 sabores';
         } else {
-            title.innerHTML = 'Pasteis<br>2 sabores';
+            title.innerHTML = 'Pastéis<br>2 sabores';
         }
     }
 
     window.addEventListener('resize', adjustPasteis2saboresTitle);
     adjustPasteis2saboresTitle(); // Run on page load
 </script>
+
+<script src="scripts/carrinho.js"></script>
+<script src="scripts/modal.js"></script>
 
 </body>
 

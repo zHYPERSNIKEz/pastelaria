@@ -74,7 +74,7 @@
             align-items: center;
             margin: 5px;
 
-            & .locaziacao {
+            & .localizacao {
                 display: inline-block;
                 width: 30px;
                 height: 30px;
@@ -339,8 +339,8 @@
 
     & .card-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
     }
 
     & .cards {
