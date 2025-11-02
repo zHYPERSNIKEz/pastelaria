@@ -1,0 +1,76 @@
+.carrinho {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-cards);
+    padding: 10px;
+    border-radius: 0; /* Changed to 0 for full width bar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & h2 {
+        font-size: 16px;
+    }
+
+    & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:  14px;
+        width: 50px;
+        height: 15px;
+        gap: 10px;
+        background-color: var(--bg-asents);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    & .carro {
+        width: 20px;
+        height: 20px;
+        background-image: url('../assents/icones/carrinho-de-compras.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+
+@media (min-width: 699px){
+
+    .carrinho{
+        justify-content: center;
+        gap: 200px;
+
+        
+    }
+
+    .carrinho h2{
+        font-size: 30px;
+    }
+
+    .carrinho button{
+        font-size: 25px;
+        width: 100px;
+        height: 35px;
+
+         &:hover{
+            border-radius: 5px;
+            background-color: rgba(122, 252, 83, 0.753);
+        }
+        
+    }
+
+    .carrinho  button .carro{
+        width: 26px;
+        height: 26px;
+    }
+}
+
+
+    

@@ -435,6 +435,11 @@
         padding: 8px;
         
     }
+
+    .adiciona button:hover{
+        background-color: rgba(84, 243, 84, 0.466);
+    }
+
     .card h2{
         display: flex;
         justify-content: center;
