@@ -75,9 +75,9 @@
                 
                 <div class="container-menu">
         
-                    <!-- <article class="title-menu">
-                        <h2>Menu de Dar Água na Boca: Escolha seu Favorito!</h2>
-                    </article> -->
+                    <article class="title-menu">
+                        <h2>Pastéis</h2>
+                    </article>
         
                     <div class="card-grid">
 
@@ -138,15 +138,13 @@
                     </section>
 
                     
-        
-                    <!-- Hamburgue e Hotdog -->
+    
         
                     <section class="cards">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
-                                <h2>X-tudo 
-                                    todos os sabores
+                                <h2 id="pasteis-xtudo">Pastel <br>X-tudo 
                                 </h2>
                             </figcaption>
                         </figure>
@@ -169,25 +167,75 @@
                         </div>
                     </section>
                 
-                    <!-- <section class="cards">
-                        <figure>
-                            <img src="assents/img/croquete_queijo.jpeg" alt="imagem de croquete de queijo" loading="lazy">
-                            <figcaption>
-                                <h2>Croquete de queijo+molho </h2>
-                            </figcaption>
-                        </figure>
-                        <p>R$ 12,00</p>
-                        <div class="adiciona">
-                            <button>adicionar</button>
-                        </div>
-                    </section> -->
                     
                     </div>
 
                     
+
+
+                    
+
+
+
+
                         
 
                 </div>
+
+                <!-- Marmita -->
+
+                <div id="marmita">
+        
+                    <article class="title-menu">
+                        <h2>Marmitas</h2>
+                    </article>
+        
+                    <div class="card-grid">
+
+                    <section class="cards">
+                        <figure>
+                            <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
+                            <figcaption>
+                                <h2>Marmita P</h2>
+                            </figcaption>
+                        </figure>
+                        <p>R$ 10,00</p>
+                        <div class="adiciona">
+                            <button>adicionar</button>
+                        </div>
+                    </section>
+        
+                    <section class="cards">
+                        <figure>
+                            <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
+                            <figcaption>
+                                <h2>Marmita M</h2>
+                            </figcaption>
+                        </figure>
+                        <p>R$ 14,00</p>
+                        <div class="adiciona">
+                            <button>adicionar</button>
+                        </div>
+                    </section>
+
+                    <section class="cards">
+                        <figure>
+                            <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
+                            <figcaption>
+                                <h2>Marmita G</h2>
+                            </figcaption>
+                        </figure>
+                        <p>R$ 18,00</p>
+                        <div class="adiciona">
+                            <button>adicionar</button>
+                        </div>
+                    </section>
+                    
+                    </div>
+
+                </div>
+
+
                 
                 
 
@@ -205,9 +253,21 @@
                     <div class="card-grid">
                     <section class="cards">
                         <figure>
+                            <img src="assents/img/refris.png" alt="imagem de refrigerantes" loading="lazy">
+                            <figcaption>
+                                <h2>Refrigerantes 2 Litros</h2>
+                            </figcaption>
+                        </figure>
+                        <div class="adiciona">
+                            <button>adicionar</button>
+                        </div>
+                    </section>
+
+                    <section class="cards">
+                        <figure>
                             <img src="assents/img/refris.png" alt="imagem de uns Refrigerantes" loading="lazy">
                             <figcaption>
-                                <h2>Refrigerantes</h2>
+                                <h2 id="Refri1Litro">Refrigerantes <br>1 Litro</h2>
                             </figcaption>
                         </figure>
                         <div class="adiciona">
@@ -217,21 +277,9 @@
 
                     <section class="cards">
                         <figure>
-                            <img src="assents/img/sucos.png" alt="imagem de sucos naturais" loading="lazy">
+                            <img src="assents/img/refris.png" alt="imagem de uns Refrigerantes" loading="lazy">
                             <figcaption>
-                                <h2 class="title-small-nowrap">Sucos Naturais</h2>
-                            </figcaption>
-                        </figure>
-                        <div class="adiciona">
-                            <button>adicionar</button>
-                        </div>
-                    </section>
-
-                    <section class="cards">
-                        <figure>
-                            <img src="assents/img/soverte.png" alt="imagem de uns soverte" loading="lazy">
-                            <figcaption>
-                                <h2>Sorvetes</h2>
+                                <h2>Refrigerantes em Lata</h2>
                             </figcaption>
                         </figure>
                         <div class="adiciona">
@@ -372,8 +420,38 @@
         }
     }
 
-    window.addEventListener('resize', adjustPasteis2saboresTitle);
-    adjustPasteis2saboresTitle(); // Run on page load
+    function adjustRefri1LitroTitle() {
+        const title2 = document.getElementById('Refri1Litro');
+        if (window.innerWidth > 700){
+            title2.innerHTML = 'Refrigerantes 1 Litros';
+        }
+        else {
+            title2.innerHTML = 'Refrigerantes <br> 1 Litros';
+        }
+    }
+
+    function adjPastelXtudoTitle() {
+        const title3 = document.getElementById('pasteis-xtudo');
+            if (window.innerWidth > 700) {
+                title3.innerHTML = 'Pastel X-tudo'; 
+            }  
+            else {
+                title3.innerHTML = 'Pastel <br> X-tudo'
+            }
+    } 
+
+    window.addEventListener('resize', 
+    adjustPasteis2saboresTitle);
+    adjustPasteis2saboresTitle();// Run on page load
+
+    window.addEventListener('resize', 
+    adjustRefri1LitroTitle);
+    adjustRefri1LitroTitle();
+
+    window.addEventListener('resize',
+    adjPastelXtudoTitle);
+    adjPastelXtudoTitle();
+
 </script>
 
 <script src="scripts/carrinho.js"></script>

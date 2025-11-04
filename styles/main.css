@@ -171,6 +171,62 @@
     }
 }
 
+#marmita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    max-height: auto;
+    background-color: var(--bg-cards-marmita);
+    padding: 10px;
+    margin: 10px 10px 0 10px;
+    border-radius: 20px;
+    text-align: center;
+
+    & .title-menu {
+        font-size: 14px;
+        text-align: center;
+        margin: 0px 5px 9px 5px;
+        
+    }
+
+    & .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+    }
+
+    & .cards {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        background-color: var(--bg-asents);
+        color: var(--font-color);
+        padding: 7px;
+        border-radius: 20px;
+
+        & h2 {
+            margin-top:8px;
+            font-size: 12px;
+            min-height: 2.4em; /* Garante espaço para 2 linhas */
+        }
+
+        & p {
+            margin: 5px;
+            font-size: 12px;
+        }
+
+        & img {
+            width: 85px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+}
+
 .botao {
     display: flex;
     justify-content: center;
@@ -459,7 +515,8 @@
         gap: 15px;
     }
 
-    #container_comida .container-menu .cards img {
+    #container_comida .container-menu .cards img,
+    #marmita .cards img{
         width: 220px;
         height: 120px;
     }
@@ -474,7 +531,7 @@
         height: 120px;
     }
 
-    #container_comida .container-menu,
+    #container_comida .container-menu,#marmita,
     #container_bebida .container-menu,
     #container_delivery {
         min-width: 610px;
