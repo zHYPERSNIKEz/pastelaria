@@ -11,40 +11,149 @@ const botaoAdicionarCarrinho = document.querySelector('.modal .adicionar-carrinh
 // ############# ESTADO (DADOS) #############
 let quantidadesSabores = {};
 
+// Objeto para mapear produtos às suas opções
+const produtos = {
+    'pastel-simples': {
+        titulo: 'Pastel Simples',
+        opcoes: ['Carne', 'Queijo', 'Frango']
+    },
+    'pastel-especial-9': {
+        titulo: 'Pastel Especial',
+        opcoes: ['Queijo e Bacon', 'Calabresa e Queijo',
+            'Pizza', 'Frango com Cheddar e azeitona',
+            'Frango com Queijo e azeitona']
+    },
+    'pastel-especial-12': {
+        titulo: 'Pastel Especial',
+        opcoes: ['Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo']
+    },
+    'pastel-2-sabores': {
+        titulo: 'Pastel 2 Sabores',
+        opcoes: ['Frango com Bacon','Frango com Catupiry',
+                'Frango com Calabresa','Frango com Queijo', 
+                'Carne com Queijo',
+                'Carne com Catupiry',
+                'Carne com Bacon']
+    },
+    'pastel-x-tudo': {
+        titulo: 'Pastel X-Tudo',
+        opcoes: [] // Sem sub-opções, apenas a principal
+    },
+    'cachorrao': {
+        titulo: 'Cachorrão',
+        opcoes: [] // Sem sub-opções, apenas a principal
+    },
+    'marmita-p': {
+        titulo: 'Marmita P',
+        opcoes: []
+    },
+    'marmita-m': {
+        titulo: 'Marmita M',
+        opcoes: []
+    },
+    'marmita-g': {
+        titulo: 'Marmita G',
+        opcoes: []
+    },
+    'refri-2l': {
+        titulo: 'Refrigerante 2L',
+        opcoes: ['Coca-Cola', 'Cajuina','Guaraná Antarctica', 'Fanta Laranja', 'Fanta Uva']
+    },
+    'refri-1l': {
+        titulo: 'Refrigerante 1L',
+        opcoes: ['Coca-Cola', 'Cajuina', 'Guaraná Antarctica']
+    },
+    'refri-lata': {
+        titulo: 'Refrigerante em Lata',
+        opcoes: ['Coca-Cola','Cajuina', 'Guaraná Antarctica', 'Fanta Laranja', 'Sprite']
+    }
+};
+
+
 // ############# FUNÇÕES #############
 
 function resetarQuantidades() {
+    quantidadesSabores = {}; // Limpa o objeto de quantidades
     const saborItems = document.querySelectorAll('.sabor-item');
     saborItems.forEach(item => {
-        const sabor = item.dataset.sabor;
-        quantidadesSabores[sabor] = 0;
         item.querySelector('.qtd').innerText = 0;
-        item.querySelector('.menos').classList.add('disabled');
+        if (item.querySelector('.menos')) {
+            item.querySelector('.menos').classList.add('disabled');
+        }
     });
 }
 
+function gerarOpcoesHTML(produtoId) {
+    const produto = produtos[produtoId];
+    let htmlOpcoes = '';
+
+    // Se não houver opções, cria uma opção padrão com o nome do produto
+    if (!produto.opcoes || produto.opcoes.length === 0) {
+        htmlOpcoes += `
+            <div class="sabor-item" data-sabor="${produto.titulo}">
+                <span>${produto.titulo}</span>
+                <div class="quantidade">
+                    <button class="menos disabled">-</button>
+                    <span class="qtd">0</span>
+                    <button class="mais">+</button>
+                </div>
+            </div>
+        `;
+    } else { // Se houver opções, cria uma para cada
+        produto.opcoes.forEach(opcao => {
+            htmlOpcoes += `
+                <div class="sabor-item" data-sabor="${opcao}">
+                    <span>${opcao}</span>
+                    <div class="quantidade">
+                        <button class="menos disabled">-</button>
+                        <span class="qtd">0</span>
+                        <button class="mais">+</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    return htmlOpcoes;
+}
+
+
 function abrirModal(event) {
-    resetarQuantidades();
     const card = event.target.closest('.cards');
     if (!card) return;
 
+    const produtoId = card.dataset.produto;
+    const produtoInfo = produtos[produtoId];
+
+    // Se o produto não for encontrado no nosso objeto, não abre o modal.
+    if (!produtoInfo) {
+        console.error(`Produto com id "${produtoId}" não encontrado.`);
+        return;
+    }
+
+    resetarQuantidades();
+
     const imagemElement = card.querySelector('img');
-    const nomeElement = card.querySelector('h2');
     const modalImagem = modal.querySelector('.item-info img');
     const modalNome = modal.querySelector('.item-info h3');
 
     if (imagemElement && modalImagem) {
         modalImagem.src = imagemElement.src;
     }
-    if (nomeElement && modalNome) {
-        modalNome.innerText = nomeElement.innerText;
+    // Usa o título do nosso objeto de produtos para consistência
+    if (modalNome) {
+        modalNome.innerText = produtoInfo.titulo;
     }
 
+    // Gera e insere as opções dinamicamente
+    opcoesContainer.innerHTML = gerarOpcoesHTML(produtoId);
+
     modalContainer.classList.add('mostrar');
+    document.body.style.overflow = 'hidden'; // Impede a rolagem do fundo
 }
 
 function fecharModal() {
     modalContainer.classList.remove('mostrar');
+    document.body.style.overflow = ''; // Restaura a rolagem do fundo
 }
 
 function handleCliqueQuantidade(event) {
@@ -53,6 +162,11 @@ function handleCliqueQuantidade(event) {
     if (!saborItem) return;
 
     const sabor = saborItem.dataset.sabor;
+    // Inicializa a quantidade se for a primeira vez
+    if (quantidadesSabores[sabor] === undefined) {
+        quantidadesSabores[sabor] = 0;
+    }
+
     let quantidadeAtual = quantidadesSabores[sabor];
     const botaoMenos = saborItem.querySelector('.menos');
 
@@ -92,11 +206,10 @@ function coletarItensDoModal() {
     if (itensParaAdicionar.length > 0) {
         // Chama a função do arquivo carrinho.js
         adicionarAoCarrinho(itensParaAdicionar);
+        fecharModal();
     } else {
         alert('Nenhum item selecionado.');
     }
-
-    fecharModal();
 }
 
 // ############# EVENT LISTENERS #############
