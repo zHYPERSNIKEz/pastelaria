@@ -37,7 +37,7 @@ const produtos = {
     },
     'pastel-x-tudo': {
         titulo: 'Pastel X-Tudo',
-        opcoes: [] // Sem sub-opções, apenas a principal
+        opcoes: ['Carne', 'Queijo', 'Frango', 'Queijo e Bacon', 'Calabresa e Queijo', 'Pizza', 'Frango com Cheddar e azeitona', 'Frango com Queijo e azeitona', 'Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo', 'Frango com Bacon', 'Frango com Catupiry', 'Frango com Calabresa', 'Frango com Queijo', 'Carne com Queijo', 'Carne com Catupiry', 'Carne com Bacon']
     },
     'cachorrao': {
         titulo: 'Cachorrão',
@@ -55,6 +55,22 @@ const produtos = {
         titulo: 'Marmita G',
         opcoes: []
     },
+    'cuscuz-pote':{
+        titulo: 'cuscuz no pote',
+        opcoes: ['Carne moída ao molho', 'Linguiça Suína', 'Linguiça Calabresa', 'Frango Desfiado', 'Quijo e Vinagrete']
+    },
+    'cuscuz-recheado':{
+        titulo: 'Cuscuz Recheado',
+        opcoes: ['frango', 'Carne Moída', 'Calabresa', 'Salsicha', 'Salada']
+    },
+    'sopa-frango': {
+        titulo: 'Sopa de Frango',
+        opcoes: []
+    },
+    'mungunza': {
+        titulo: 'Mungunzá',
+        opcoes: []
+    },
     'refri-2l': {
         titulo: 'Refrigerante 2L',
         opcoes: ['Coca-Cola', 'Cajuina','Guaraná Antarctica', 'Fanta Laranja', 'Fanta Uva']
@@ -67,6 +83,8 @@ const produtos = {
         titulo: 'Refrigerante em Lata',
         opcoes: ['Coca-Cola','Cajuina', 'Guaraná Antarctica', 'Fanta Laranja', 'Sprite']
     }
+
+
 };
 
 
@@ -87,8 +105,22 @@ function gerarOpcoesHTML(produtoId) {
     const produto = produtos[produtoId];
     let htmlOpcoes = '';
 
-    // Se não houver opções, cria uma opção padrão com o nome do produto
-    if (!produto.opcoes || produto.opcoes.length === 0) {
+    if (produtoId === 'pastel-x-tudo') {
+        htmlOpcoes += `
+            <h4>Escolha até 3 sabores:</h4>
+            <div class="opcoes-xtudo">
+                ${produto.opcoes.map(sabor => `<label><input type="checkbox" name="sabor-xtudo" value="${sabor}"> ${sabor}</label>`).join('')}
+            </div>
+            <div class="sabor-item" data-sabor="${produto.titulo}">
+                <span>${produto.titulo}</span>
+                <div class="quantidade">
+                    <button class="menos disabled">-</button>
+                    <span class="qtd">0</span>
+                    <button class="mais">+</button>
+                </div>
+            </div>
+        `;
+    } else if (!produto.opcoes || produto.opcoes.length === 0) {
         htmlOpcoes += `
             <div class="sabor-item" data-sabor="${produto.titulo}">
                 <span>${produto.titulo}</span>
@@ -219,6 +251,26 @@ botoesAdicionar.forEach(botao => {
 botaoFechar.addEventListener('click', fecharModal);
 opcoesContainer.addEventListener('click', handleCliqueQuantidade);
 botaoAdicionarCarrinho.addEventListener('click', coletarItensDoModal);
+opcoesContainer.addEventListener('click', (event) => {
+    if (event.target.name === 'sabor-xtudo') {
+        const checkboxes = document.querySelectorAll('[name="sabor-xtudo"]:checked');
+        if (checkboxes.length > 3) {
+            alert('Você pode escolher no máximo 3 sabores.');
+            event.target.checked = false;
+        }
+    }
+});
+
+opcoesContainer.addEventListener('click', (event) => {
+    if (event.target.name === 'sabor-xtudo') {
+        const checkboxes = document.querySelectorAll('[name="sabor-xtudo"]:checked');
+        if (checkboxes.length > 3) {
+            alert('Você pode escolher no máximo 3 sabores.');
+            event.target.checked = false;
+        }
+    }
+});
+
 modalContainer.addEventListener('click', (event) => {
     if (event.target === modalContainer) {
         fecharModal();
