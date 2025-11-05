@@ -17,8 +17,8 @@ function adicionarAoCarrinho(itens) {
     // Adiciona os novos itens ao array principal do carrinho
     carrinho.push(...itens);
     
-    console.log('Carrinho atualizado:', carrinho);
-    alert('Itens adicionados! (Veja o console para detalhes)');
+    console.log('Carrinho atualizado:', carrinho.map(item => `${item.quantidade}x ${item.nome} (${item.sabor}) - R$ ${item.preco.toFixed(2)}`));
+    alert('Itens adicionados ao carrinho!');
 
     // Mostra o aside do carrinho
     asideCarrinho.classList.add('mostrar');

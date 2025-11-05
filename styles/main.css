@@ -167,8 +167,29 @@
                 border-radius: 10px;
                 object-fit: cover;
             }
+            
         }
+        
     }
+}
+
+.opcoes-xtudo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 10px; /* Espaçamento entre os itens */
+    max-height: 150px; /* Altura máxima antes de rolar */
+    overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder a altura */
+    border: 1px solid #ccc; /* Borda para destacar a caixa */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 8px; /* Cantos arredondados */
+    margin-bottom: 10px; /* Espaçamento abaixo da caixa */
+}
+
+.opcoes-xtudo label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
 }
 
 #marmita {
@@ -226,6 +247,64 @@
         }
     }
 }
+
+
+#outros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    max-height: auto;
+    background-color: var(--bg-cards-marmita);
+    padding: 10px;
+    margin: 10px 10px 0 10px;
+    border-radius: 20px;
+    text-align: center;
+
+    & .title-menu {
+        font-size: 14px;
+        text-align: center;
+        margin: 0px 5px 9px 5px;
+        
+    }
+
+    & .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    & .cards {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        background-color: var(--bg-asents);
+        color: var(--font-color);
+        padding: 7px;
+        border-radius: 20px;
+
+        & h2 {
+            margin-top:8px;
+            font-size: 12px;
+            min-height: 2.4em; /* Garante espaço para 2 linhas */
+        }
+
+        & p {
+            margin: 5px;
+            font-size: 12px;
+        }
+
+        & img {
+            width: 120px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+}
+
 
 .botao {
     display: flex;
@@ -520,6 +599,15 @@
         width: 220px;
         height: 120px;
     }
+    #outros .card-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #outros .cards img{
+        width: 150px;
+        height: 120px;
+    }
 
     #container_bebida .container-menu .cards img {
         width: 180px;
@@ -531,7 +619,7 @@
         height: 120px;
     }
 
-    #container_comida .container-menu,#marmita,
+    #container_comida .container-menu,#marmita,#outros,
     #container_bebida .container-menu,
     #container_delivery {
         min-width: 610px;
@@ -566,8 +654,8 @@
         font-size: 14px; /* Reset font size for desktop */
     }
 
-    #container_bebida .card-grid {
-        gap: 15px;
+    #container_bebida .container-menu .card-grid {
+        gap: 20px;
     }
 
     #container_bebida .cards h2 {
@@ -586,3 +674,30 @@
         font-size: 16px !important;
     }
 }
+
+.opcoes-xtudo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 10px; /* Espaçamento entre os itens */
+    max-height: 150px; /* Altura máxima antes de rolar */
+    overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder a altura */
+    border: 1px solid #ccc; /* Borda para destacar a caixa */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 8px; /* Cantos arredondados */
+    margin-bottom: 10px; /* Espaçamento abaixo da caixa */
+}
+
+.opcoes-xtudo label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.opcoes-adicionais-cuscuz {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaçamento entre os checkboxes */
+    margin-top: 5px;
+}
+
