@@ -1,0 +1,15 @@
+feat: Implementa modal de produto dinâmico e melhorias de UX
+
+Este commit introduz um modal de seleção de produto dinâmico e aprimora a experiência do usuário ao interagir com ele.
+
+Principais alterações:
+- **Conteúdo Dinâmico do Modal:**
+  - Adicionados atributos `data-produto` aos cards de produto em `index.html` para identificação única.
+  - Removidas as opções de produto fixas do modal em `index.html`, que agora são geradas via JavaScript.
+  - Implementada lógica em `modal.js` para popular dinamicamente as opções do modal com base no produto selecionado.
+- **Layout e Rolagem do Modal:**
+  - Reestruturado o HTML do modal em `index.html` com seções `modal-header` (fixa) e `modal-body` (rolável).
+  - Ajustado `modal.js` para não gerar o título "Escolha os sabores e quantidades", que agora é parte do `modal-header`.
+  - Adicionado CSS em `modal.css` para aplicar um layout flexível, cabeçalho fixo e área de opções rolável.
+- **Prevenção de Rolagem de Fundo:**
+  - Adicionada lógica em `modal.js` para desativar a rolagem do `body` da página quando o modal está aberto, garantindo foco total na interação com o modal.
