@@ -3,13 +3,15 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     z-index: 2000;
     display: flex;
     justify-content: center;
     align-items: center;
     visibility: hidden;
+    overflow: auto;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s;
 
@@ -121,4 +123,27 @@
             background: #e0a800;
         }
     }
+}
+
+/* Styles for scrollable modal */
+.modal {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh; /* Limit modal height to 85% of the viewport height */
+}
+
+.modal-header {
+    flex-shrink: 0; /* Prevent the header from shrinking */
+}
+
+.opcoes.modal-body {
+    overflow-y: auto; /* Add vertical scrollbar only when needed */
+    padding-right: 15px; /* Add some space for the scrollbar */
+}
+
+/* Make the add to cart button also sticky at the bottom */
+.modal .adicionar-carrinho {
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    margin-left: auto;
+    margin-right: auto;
 }

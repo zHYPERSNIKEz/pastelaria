@@ -83,7 +83,7 @@
 
                         <!-- Pasteis -->
 
-                    <section class="cards">
+                    <section class="cards" data-produto="pastel-simples">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
@@ -98,7 +98,7 @@
                         </div>
                     </section>
         
-                    <section class="cards">
+                    <section class="cards" data-produto="pastel-especial-9">
                         <figure>
                             <img src="assents/img/supremo_burger.png" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
@@ -111,7 +111,7 @@
                         </div>
                     </section>
 
-                    <section class="cards">
+                    <section class="cards" data-produto="pastel-especial-12">
                         <figure>
                             <img src="assents/img/supremo_burger.png" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
@@ -124,7 +124,7 @@
                         </div>
                     </section>
         
-                    <section class="cards">
+                    <section class="cards" data-produto="pastel-2-sabores">
                         <figure>
                             <img src="assents/img/santo_kids.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
@@ -140,7 +140,7 @@
                     
     
         
-                    <section class="cards">
+                    <section class="cards" data-produto="pastel-x-tudo">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma hambúrguer artesanal" loading="lazy">
                             <figcaption>
@@ -154,7 +154,7 @@
                         </div>
                     </section>
         
-                    <section class="cards">
+                    <section class="cards" data-produto="cachorrao">
                         <figure>
                             <img src="assents/img/camarao_empanado.png" alt="imagem camarão empanado" loading="lazy">
                             <figcaption>
@@ -192,7 +192,7 @@
         
                     <div class="card-grid">
 
-                    <section class="cards">
+                    <section class="cards" data-produto="marmita-p">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
                             <figcaption>
@@ -205,7 +205,7 @@
                         </div>
                     </section>
         
-                    <section class="cards">
+                    <section class="cards" data-produto="marmita-m">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
                             <figcaption>
@@ -218,7 +218,7 @@
                         </div>
                     </section>
 
-                    <section class="cards">
+                    <section class="cards" data-produto="marmita-g">
                         <figure>
                             <img src="assents/img/brejoburguer.jpeg" alt="imagem de uma marmita" loading="lazy">
                             <figcaption>
@@ -251,7 +251,7 @@
                     </article>
 
                     <div class="card-grid">
-                    <section class="cards">
+                    <section class="cards" data-produto="refri-2l">
                         <figure>
                             <img src="assents/img/refris.png" alt="imagem de refrigerantes" loading="lazy">
                             <figcaption>
@@ -263,7 +263,7 @@
                         </div>
                     </section>
 
-                    <section class="cards">
+                    <section class="cards" data-produto="refri-1l">
                         <figure>
                             <img src="assents/img/refris.png" alt="imagem de uns Refrigerantes" loading="lazy">
                             <figcaption>
@@ -275,7 +275,7 @@
                         </div>
                     </section>
 
-                    <section class="cards">
+                    <section class="cards" data-produto="refri-lata">
                         <figure>
                             <img src="assents/img/refris.png" alt="imagem de uns Refrigerantes" loading="lazy">
                             <figcaption>
@@ -359,39 +359,18 @@
     <div id="modal-container" class="modal-container">
         <div class="modal">
             <button class="fechar">X</button>
-            <h2>Personalize seu pedido</h2>
-            
-            <div class="item-info">
-                <img src="assents/img/brejoburguer.jpeg" alt="Imagem do item">
-                <h3>Pastel de Carne</h3>
-            </div>
-
-            <div class="opcoes">
+            <div class="modal-header">
+                <h2>Personalize seu pedido</h2>
+                
+                <div class="item-info">
+                    <img src="assents/img/brejoburguer.jpeg" alt="Imagem do item">
+                    <h3>Pastel de Carne</h3>
+                </div>
                 <h4>Escolha os sabores e quantidades:</h4>
-                <div class="sabor-item" data-sabor="Carne">
-                    <span>Carne</span>
-                    <div class="quantidade">
-                        <button class="menos">-</button>
-                        <span class="qtd">0</span>
-                        <button class="mais">+</button>
-                    </div>
-                </div>
-                <div class="sabor-item" data-sabor="Queijo">
-                    <span>Queijo</span>
-                    <div class="quantidade">
-                        <button class="menos">-</button>
-                        <span class="qtd">0</span>
-                        <button class="mais">+</button>
-                    </div>
-                </div>
-                <div class="sabor-item" data-sabor="Frango">
-                    <span>Frango</span>
-                    <div class="quantidade">
-                        <button class="menos">-</button>
-                        <span class="qtd">0</span>
-                        <button class="mais">+</button>
-                    </div>
-                </div>
+            </div>
+            
+            <div class="opcoes modal-body">
+                <!-- As opções geradas pelo JS virão aqui -->
             </div>
 
             <button class="adicionar-carrinho">Adicionar ao carrinho</button>
