@@ -61,7 +61,8 @@ const produtos = {
     },
     'cuscuz-recheado':{
         titulo: 'Cuscuz Recheado',
-        opcoes: ['frango', 'Carne Moída', 'Calabresa', 'Salsicha', 'Salada']
+        opcoes: ['Frango', 'Carne Moída', 'Calabresa', 'Salsicha', 'Salada'],
+        adicionais: ['Carne de Sol', 'Bacon']
     },
     'sopa-frango': {
         titulo: 'Sopa de Frango',
@@ -108,10 +109,27 @@ function gerarOpcoesHTML(produtoId) {
     if (produtoId === 'pastel-x-tudo') {
         htmlOpcoes += `
             <h4>Escolha até 3 sabores:</h4>
-            <div class="opcoes-xtudo">
-                ${produto.opcoes.map(sabor => `<label><input type="checkbox" name="sabor-xtudo" value="${sabor}"> ${sabor}</label>`).join('')}
+                    <div class="opcoes-xtudo opcoes-group">
+                        ${produto.opcoes.map(sabor => `<label><input type="checkbox" name="sabor-xtudo" value="${sabor}"> ${sabor}</label>`).join('')}
+                    </div>            <div class="sabor-item" data-sabor="${produto.titulo}">
+                <span>${produto.titulo}</span>
+                <div class="quantidade">
+                    <button class="menos disabled">-</button>
+                    <span class="qtd">0</span>
+                    <button class="mais">+</button>
+                </div>
             </div>
-            <div class="sabor-item" data-sabor="${produto.titulo}">
+        `;
+    } else if (produtoId === 'cuscuz-recheado') {
+        htmlOpcoes += `
+            <h4>Escolha 1 sabor:</h4>
+                    <div class="opcoes-cuscuz opcoes-group">
+                        ${produto.opcoes.map(sabor => `<label><input type="radio" name="sabor-cuscuz" value="${sabor}"> ${sabor}</label>`).join('')}
+                    </div>
+                    <div class="adicionais-cuscuz opcoes-group" style="display: none;">
+                        <h4>Adicionais (R$ 3,00 cada):</h4>
+                        ${produto.adicionais.map(adicional => `<label><input type="checkbox" name="adicional-cuscuz" value="${adicional}"> ${adicional}</label>`).join('')}
+                    </div>            <div class="sabor-item" data-sabor="${produto.titulo}">
                 <span>${produto.titulo}</span>
                 <div class="quantidade">
                     <button class="menos disabled">-</button>
@@ -154,6 +172,8 @@ function abrirModal(event) {
     if (!card) return;
 
     const produtoId = card.dataset.produto;
+    modalContainer.dataset.produtoId = produtoId; // Armazena o ID do produto
+
     const produtoInfo = produtos[produtoId];
 
     // Se o produto não for encontrado no nosso objeto, não abre o modal.
@@ -193,6 +213,7 @@ function handleCliqueQuantidade(event) {
     const saborItem = botao.closest('.sabor-item');
     if (!saborItem) return;
 
+    const produtoId = modalContainer.dataset.produtoId;
     const sabor = saborItem.dataset.sabor;
     // Inicializa a quantidade se for a primeira vez
     if (quantidadesSabores[sabor] === undefined) {
@@ -203,6 +224,10 @@ function handleCliqueQuantidade(event) {
     const botaoMenos = saborItem.querySelector('.menos');
 
     if (botao.classList.contains('mais')) {
+        if (produtoId === 'cuscuz-recheado' && quantidadeAtual >= 1) {
+            alert('Você pode adicionar apenas um cuscuz recheado por vez.');
+            return;
+        }
         quantidadeAtual++;
     } else if (botao.classList.contains('menos')) {
         if (quantidadeAtual > 0) {
@@ -223,15 +248,54 @@ function handleCliqueQuantidade(event) {
 function coletarItensDoModal() {
     const itensParaAdicionar = [];
     const nomeBase = modal.querySelector('.item-info h3').innerText;
+    const produtoId = modalContainer.dataset.produtoId;
 
-    for (const sabor in quantidadesSabores) {
-        const quantidade = quantidadesSabores[sabor];
+    if (produtoId === 'cuscuz-recheado') {
+        const saborSelecionado = document.querySelector('input[name="sabor-cuscuz"]:checked');
+        if (!saborSelecionado) {
+            alert('Por favor, escolha um sabor para o cuscuz.');
+            return;
+        }
+
+        const sabor = saborSelecionado.value;
+        const adicionais = Array.from(document.querySelectorAll('input[name="adicional-cuscuz"]:checked')).map(cb => cb.value);
+        const quantidade = parseInt(document.querySelector('.sabor-item .qtd').innerText);
+
         if (quantidade > 0) {
+            let nomeFinal = `${nomeBase} (${sabor}`;
+            if (adicionais.length > 0) {
+                nomeFinal += ` com ${adicionais.join(', ')}`;
+            }
+            nomeFinal += ')';
+
+            const precoBase = 15;
+            const precoAdicionais = adicionais.length * 3;
+            const precoFinal = precoBase + precoAdicionais;
+
             itensParaAdicionar.push({
-                nome: nomeBase,
-                sabor: sabor,
-                quantidade: quantidade
+                nome: nomeFinal,
+                sabor: '', // Sabor já está no nome
+                quantidade: quantidade,
+                preco: precoFinal
             });
+        }
+
+    } else {
+        for (const sabor in quantidadesSabores) {
+            const quantidade = quantidadesSabores[sabor];
+            if (quantidade > 0) {
+                // Find the price from the HTML
+                const card = document.querySelector(`[data-produto="${produtoId}"]`);
+                const precoText = card.querySelector('p').innerText;
+                const preco = parseFloat(precoText.replace('R$', '').replace(',', '.'));
+
+                itensParaAdicionar.push({
+                    nome: nomeBase,
+                    sabor: sabor,
+                    quantidade: quantidade,
+                    preco: preco
+                });
+            }
         }
     }
 
@@ -268,6 +332,12 @@ opcoesContainer.addEventListener('click', (event) => {
             alert('Você pode escolher no máximo 3 sabores.');
             event.target.checked = false;
         }
+    }
+});
+
+opcoesContainer.addEventListener('change', (event) => {
+    if (event.target.name === 'sabor-cuscuz') {
+        document.querySelector('.adicionais-cuscuz').style.display = 'block';
     }
 });
 

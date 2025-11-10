@@ -17,7 +17,16 @@ function adicionarAoCarrinho(itens) {
     // Adiciona os novos itens ao array principal do carrinho
     carrinho.push(...itens);
     
-    console.log('Carrinho atualizado:', carrinho.map(item => `${item.quantidade}x ${item.nome} (${item.sabor}) - R$ ${item.preco.toFixed(2)}`));
+    console.log('Carrinho atualizado:', carrinho.map(item => {
+        let itemString = `${item.quantidade}x ${item.nome}`;
+        if (item.sabor) {
+            itemString += ` (${item.sabor})`;
+        }
+        if (item.preco) {
+            itemString += ` - R$ ${item.preco.toFixed(2)}`;
+        }
+        return itemString;
+    }));
     alert('Itens adicionados ao carrinho!');
 
     // Mostra o aside do carrinho
