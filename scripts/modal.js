@@ -15,77 +15,97 @@ let quantidadesSabores = {};
 const produtos = {
     'pastel-simples': {
         titulo: 'Pastel Simples',
-        opcoes: ['Carne', 'Queijo', 'Frango']
+        opcoes: ['Carne', 'Queijo', 'Frango'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'pastel-especial-9': {
         titulo: 'Pastel Especial',
         opcoes: ['Queijo e Bacon', 'Calabresa e Queijo',
             'Pizza', 'Frango com Cheddar e azeitona',
-            'Frango com Queijo e azeitona']
+            'Frango com Queijo e azeitona'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'pastel-especial-12': {
         titulo: 'Pastel Especial',
-        opcoes: ['Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo']
+        opcoes: ['Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'pastel-2-sabores': {
         titulo: 'Pastel 2 Sabores',
         opcoes: ['Frango com Bacon','Frango com Catupiry',
-                'Frango com Calabresa','Frango com Queijo', 
+                'Frango com Calabresa','Frango com Queijo',
                 'Carne com Queijo',
                 'Carne com Catupiry',
-                'Carne com Bacon']
+                'Carne com Bacon'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'pastel-x-tudo': {
         titulo: 'Pastel X-Tudo',
-        opcoes: ['Carne', 'Queijo', 'Frango', 'Queijo e Bacon', 'Calabresa e Queijo', 'Pizza', 'Frango com Cheddar e azeitona', 'Frango com Queijo e azeitona', 'Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo', 'Frango com Bacon', 'Frango com Catupiry', 'Frango com Calabresa', 'Frango com Queijo', 'Carne com Queijo', 'Carne com Catupiry', 'Carne com Bacon']
+        opcoes: ['Carne', 'Queijo', 'Frango', 'Queijo e Bacon', 'Calabresa e Queijo', 'Pizza', 'Frango com Cheddar e azeitona', 'Frango com Queijo e azeitona', 'Carne de Sol c/ Queijo coalho', 'Carne de Sol c/ Catupiry e Queijo', 'Frango com Bacon', 'Frango com Catupiry', 'Frango com Calabresa', 'Frango com Queijo', 'Carne com Queijo', 'Carne com Catupiry', 'Carne com Bacon'],
+        instructionText: 'Escolha até 3 sabores:'
     },
     'cachorrao': {
         titulo: 'Cachorrão',
-        opcoes: [] // Sem sub-opções, apenas a principal
+        opcoes: [], // Sem sub-opções, apenas a principal
+        instructionText: 'Escolha a quantidade:'
     },
     'marmita-p': {
         titulo: 'Marmita P',
-        opcoes: []
+        opcoes: ['Arroz refogado', 'Feijão Mulatinho', 'Baião de feijão verde'],
+        acompanhamentos: ['Macarrão', 'Beterraba ralada', 'Salada Crua', 'Farofa', 'Cuscuz C/Bacon', 'Purê de batata', 'Banana empanada'],
+        carnes: ['Linguiça', 'Porco', 'Frango assado', 'Frango ao molho'],
+        instructionText: 'Escolha as opções para sua marmita:'
     },
     'marmita-m': {
         titulo: 'Marmita M',
-        opcoes: []
+        opcoes: ['Arroz refogado', 'Feijão Mulatinho', 'Baião de feijão verde'],
+        acompanhamentos: ['Macarrão', 'Beterraba ralada', 'Salada Crua', 'Farofa', 'Cuscuz C/Bacon', 'Purê de batata', 'Banana empanada', 'Lasanha de frango', 'Lasanha bolonhesa'],
+        carnes: ['Linguiça', 'Porco', 'Frango assado', 'Frango ao molho'],
+        instructionText: 'Escolha as opções para sua marmita:'
     },
     'marmita-g': {
         titulo: 'Marmita G',
-        opcoes: []
+        opcoes: ['Arroz refogado', 'Feijão Mulatinho', 'Baião de feijão verde'],
+        acompanhamentos: ['Macarrão', 'Beterraba ralada', 'Salada Crua', 'Farofa', 'Cuscuz C/Bacon', 'Purê de batata', 'Banana empanada', 'Lasanha de frango', 'Lasanha bolonhesa'],
+        carnes: ['Linguiça', 'Porco', 'Frango assado', 'Frango ao molho'],
+        instructionText: 'Escolha as opções para sua marmita:'
     },
     'cuscuz-pote':{
         titulo: 'cuscuz no pote',
-        opcoes: ['Carne moída ao molho', 'Linguiça Suína', 'Linguiça Calabresa', 'Frango Desfiado', 'Quijo e Vinagrete']
+        opcoes: ['Carne moída ao molho', 'Linguiça Suína', 'Linguiça Calabresa', 'Frango Desfiado', 'Quijo e Vinagrete'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'cuscuz-recheado':{
         titulo: 'Cuscuz Recheado',
         opcoes: ['Frango', 'Carne Moída', 'Calabresa', 'Salsicha', 'Salada'],
-        adicionais: ['Carne de Sol', 'Bacon']
+        adicionais: ['Carne de Sol', 'Bacon'],
+        instructionText: 'Escolha 1 sabor:'
     },
     'sopa-frango': {
         titulo: 'Sopa de Frango',
-        opcoes: []
+        opcoes: [],
+        instructionText: 'Escolha a quantidade:'
     },
     'mungunza': {
         titulo: 'Mungunzá',
-        opcoes: []
+        opcoes: [],
+        instructionText: 'Escolha a quantidade:'
     },
     'refri-2l': {
         titulo: 'Refrigerante 2L',
-        opcoes: ['Coca-Cola', 'Cajuina','Guaraná Antarctica', 'Fanta Laranja', 'Fanta Uva']
+        opcoes: ['Coca-Cola', 'Cajuina','Guaraná Antarctica', 'Fanta Laranja', 'Fanta Uva'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'refri-1l': {
         titulo: 'Refrigerante 1L',
-        opcoes: ['Coca-Cola', 'Cajuina', 'Guaraná Antarctica']
+        opcoes: ['Coca-Cola', 'Cajuina', 'Guaraná Antarctica'],
+        instructionText: 'Escolha os sabores e quantidades:'
     },
     'refri-lata': {
         titulo: 'Refrigerante em Lata',
-        opcoes: ['Coca-Cola','Cajuina', 'Guaraná Antarctica', 'Fanta Laranja', 'Sprite']
+        opcoes: ['Coca-Cola','Cajuina', 'Guaraná Antarctica', 'Fanta Laranja', 'Sprite'],
+        instructionText: 'Escolha os sabores e quantidades:'
     }
-
-
 };
 
 
@@ -108,7 +128,6 @@ function gerarOpcoesHTML(produtoId) {
 
     if (produtoId === 'pastel-x-tudo') {
         htmlOpcoes += `
-            <h4>Escolha até 3 sabores:</h4>
                     <div class="opcoes-xtudo opcoes-group">
                         ${produto.opcoes.map(sabor => `<label><input type="checkbox" name="sabor-xtudo" value="${sabor}"> ${sabor}</label>`).join('')}
                     </div>            <div class="sabor-item" data-sabor="${produto.titulo}">
@@ -122,7 +141,6 @@ function gerarOpcoesHTML(produtoId) {
         `;
     } else if (produtoId === 'cuscuz-recheado') {
         htmlOpcoes += `
-            <h4>Escolha 1 sabor:</h4>
                     <div class="opcoes-cuscuz opcoes-group">
                         ${produto.opcoes.map(sabor => `<label><input type="radio" name="sabor-cuscuz" value="${sabor}"> ${sabor}</label>`).join('')}
                     </div>
@@ -130,6 +148,31 @@ function gerarOpcoesHTML(produtoId) {
                         <h4>Adicionais (R$ 3,00 cada):</h4>
                         ${produto.adicionais.map(adicional => `<label><input type="checkbox" name="adicional-cuscuz" value="${adicional}"> ${adicional}</label>`).join('')}
                     </div>            <div class="sabor-item" data-sabor="${produto.titulo}">
+                <span>${produto.titulo}</span>
+                <div class="quantidade">
+                    <button class="menos disabled">-</button>
+                    <span class="qtd">0</span>
+                    <button class="mais">+</button>
+                </div>
+            </div>
+        `;
+    } else if (produtoId.startsWith('marmita-')) {
+        htmlOpcoes += `
+            <h4>Opções (Arroz, Feijão e Baião):</h4>
+            <div class="opcoes-marmita opcoes-group">
+                ${produto.opcoes.map(opcao => `<label><input type="radio" name="opcao-marmita" value="${opcao}"> ${opcao}</label>`).join('')}
+            </div>
+
+            <h4>Acompanhamentos (Escolha até 3):</h4>
+            <div class="acompanhamentos-marmita opcoes-group">
+                ${produto.acompanhamentos.map(acomp => `<label><input type="checkbox" name="acompanhamento-marmita" value="${acomp}"> ${acomp}</label>`).join('')}
+            </div>
+
+            <h4>Tipos de Carne (Escolha até 2):</h4>
+            <div class="carnes-marmita opcoes-group">
+                ${produto.carnes.map(carne => `<label><input type="checkbox" name="carne-marmita" value="${carne}"> ${carne}</label>`).join('')}
+            </div>
+            <div class="sabor-item" data-sabor="${produto.titulo}">
                 <span>${produto.titulo}</span>
                 <div class="quantidade">
                     <button class="menos disabled">-</button>
@@ -195,6 +238,19 @@ function abrirModal(event) {
     if (modalNome) {
         modalNome.innerText = produtoInfo.titulo;
     }
+
+    // Adiciona e define o texto de instrução dinamicamente
+    const modalHeader = modal.querySelector('.modal-header');
+    let instructionH4 = modalHeader.querySelector('.instruction-text');
+    if (instructionH4) {
+        instructionH4.remove();
+    }
+    
+    instructionH4 = document.createElement('h4');
+    instructionH4.classList.add('instruction-text');
+    modalHeader.appendChild(instructionH4);
+    instructionH4.innerText = produtoInfo.instructionText || 'Escolha os sabores e quantidades:';
+
 
     // Gera e insere as opções dinamicamente
     opcoesContainer.innerHTML = gerarOpcoesHTML(produtoId);
@@ -280,6 +336,41 @@ function coletarItensDoModal() {
             });
         }
 
+    } else if (produtoId.startsWith('marmita-')) {
+        const opcaoSelecionada = document.querySelector('input[name="opcao-marmita"]:checked');
+        if (!opcaoSelecionada) {
+            alert('Por favor, escolha uma opção de arroz, feijão ou baião.');
+            return;
+        }
+
+        const acompanhamentos = Array.from(document.querySelectorAll('input[name="acompanhamento-marmita"]:checked')).map(cb => cb.value);
+        if (acompanhamentos.length === 0) {
+            alert('Por favor, escolha pelo menos um acompanhamento.');
+            return;
+        }
+
+        const carnes = Array.from(document.querySelectorAll('input[name="carne-marmita"]:checked')).map(cb => cb.value);
+        if (carnes.length === 0) {
+            alert('Por favor, escolha pelo menos um tipo de carne.');
+            return;
+        }
+
+        const quantidade = parseInt(document.querySelector('.sabor-item .qtd').innerText);
+
+        if (quantidade > 0) {
+            let nomeFinal = `${nomeBase} (${opcaoSelecionada.value}, ${acompanhamentos.join(', ')}, ${carnes.join(', ')})`;
+
+            const card = document.querySelector(`[data-produto="${produtoId}"]`);
+            const precoText = card.querySelector('p').innerText;
+            const preco = parseFloat(precoText.replace('R$', '').replace(',', '.'));
+
+            itensParaAdicionar.push({
+                nome: nomeFinal,
+                sabor: '', // Options are already in the name
+                quantidade: quantidade,
+                preco: preco
+            });
+        }
     } else {
         for (const sabor in quantidadesSabores) {
             const quantidade = quantidadesSabores[sabor];
@@ -344,5 +435,21 @@ opcoesContainer.addEventListener('change', (event) => {
 modalContainer.addEventListener('click', (event) => {
     if (event.target === modalContainer) {
         fecharModal();
+    }
+});
+
+opcoesContainer.addEventListener('click', (event) => {
+    if (event.target.name === 'acompanhamento-marmita') {
+        const checkboxes = document.querySelectorAll('[name="acompanhamento-marmita"]:checked');
+        if (checkboxes.length > 3) {
+            alert('Você pode escolher no máximo 3 acompanhamentos.');
+            event.target.checked = false;
+        }
+    } else if (event.target.name === 'carne-marmita') {
+        const checkboxes = document.querySelectorAll('[name="carne-marmita"]:checked');
+        if (checkboxes.length > 2) {
+            alert('Você pode escolher no máximo 2 tipos de carne.');
+            event.target.checked = false;
+        }
     }
 });
