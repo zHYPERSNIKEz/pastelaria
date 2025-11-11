@@ -43,6 +43,7 @@
             justify-content: center;
             align-items: center;
             margin: 5px;
+            font-size: 15px;
 
             & .title-line {
                 display: flex;
@@ -63,7 +64,7 @@
             }
 
             & h2 {
-                font-size: 20px;
+                font-size: 18px;
                 text-align: center;
             }
         }
@@ -84,7 +85,7 @@
             }
 
             & h2{
-                font-size: 18px;
+                font-size: 13px;
                 text-align: center;
                 
             }
@@ -756,10 +757,13 @@
         font-size: 16px !important;
     }
 
+    .opcoes-xtudo{
+        max-height: 300px;
+    }
+
     .opcoes-xtudo label {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 5px;
         font-size: 18px;
         width: auto;
