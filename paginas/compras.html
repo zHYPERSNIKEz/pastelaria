@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Premium Gourmet</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/compras.css">
+
+    <link rel="shortcut icon" href="../assents/icones/favicon/favicon.ico">
+</head>
+<body>
+
+    <header class="header-compras">
+        <div class="header-container">
+            <a href="../index.html">
+                <img class="logo" src="../assents/logo-removebg.png" alt="Logo da Premium Gourmet">
+            </a>
+            <h1>Meu Carrinho</h1>
+        </div>
+    </header>
+
+    <main class="container-compras">
+        <div id="carrinho-container">
+            <!-- Itens do carrinho serão inseridos aqui pelo JavaScript -->
+            <div id="carrinho-items"></div>
+
+            <div id="carrinho-vazio" class="hidden">
+                <p>Seu carrinho está vazio.</p>
+                <a href="../index.html" class="btn">Voltar ao cardápio</a>
+            </div>
+        </div>
+
+        <aside id="carrinho-summary">
+            <h2>Resumo do Pedido</h2>
+            <div class="summary-total">
+                <span>Total:</span>
+                <span id="total-price">R$ 0,00</span>
+            </div>
+            <div class="summary-actions">
+                <button id="finalizar-pedido" class="btn">Finalizar Pedido (WhatsApp)</button>
+                <a href="../index.html" class="btn-secondary">Continuar Comprando</a>
+            </div>
+             <div class="entrega-info">
+                <h3>Informações de Entrega</h3>
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+                <label for="endereco">Endereço para entrega:</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, Número, Bairro">
+                
+                <label for="forma-pagamento">Forma de Pagamento:</label>
+                <select id="forma-pagamento" name="forma-pagamento">
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="cartao">Cartão de Crédito/Débito</option>
+                    <option value="pix">PIX</option>
+                </select>
+                <input type="text" id="troco" name="troco" placeholder="Troco para quanto? (se pagar em dinheiro)">
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer-compras">
+        <p>© 2025 Premium Gourmet. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="https://www.lstechdigital.com.br/" target="_blank">LSTech</a></p>
+    </footer>
+
+    <script src="../scripts/compras.js"></script>
+
+</body>
+</html>
