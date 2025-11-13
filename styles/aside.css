@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    background-color: var(--bg-cards);
+    background-color: var( --bg-cards-carrinho);
     padding: 10px;
     border-radius: 0; /* Changed to 0 for full width bar */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
