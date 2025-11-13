@@ -215,6 +215,11 @@ body {
 }
 
 @media (min-width: 768px) {
+
+    .header-compras{
+        padding: 2rem;
+    }
+
     .container-compras {
         flex-direction: row;
         align-items: flex-start;
@@ -222,7 +227,56 @@ body {
 
     #carrinho-summary {
         width: 350px;
+        height: 500px;
         position: sticky;
         top: 2rem;
+        padding: 1rem; /* Reduz o padding geral */
+    }
+
+    #carrinho-summary h2 {
+        font-size: 1.2rem; /* Reduz o tamanho da fonte do título */
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .entrega-info {
+        margin-top: 0;
+    }
+
+    .entrega-info h3 {
+        font-size: 1rem; /* Reduz o tamanho da fonte */
+        margin-bottom: 0.5rem;
+    }
+
+    .entrega-info label {
+        font-size: 0.85rem; /* Reduz o tamanho da fonte */
+        margin-bottom: 0.25rem;
+    }
+
+    .entrega-info input, 
+    .entrega-info select {
+        padding: 0.4rem; /* Reduz o padding */
+        margin-bottom: 0.5rem; /* Reduz a margem */
+        font-size: 0.9rem;
+    }
+
+    #carrinho-summary .summary-total {
+        font-size: 1.1rem; /* Reduz o tamanho da fonte */
+        margin-bottom: 1rem;
+    }
+
+    #carrinho-summary .summary-actions {
+        gap: 0.5rem; /* Reduz o espaço entre os botões */
+    }
+
+    #carrinho-summary .btn, 
+    #carrinho-summary .btn-secondary {
+        padding: 0.6rem; /* Reduz o padding dos botões */
+        font-size: 0.9rem;
+    }
+
+    #carrinho-container{
+        height: 500px;
+        overflow-y: auto;
     }
 }
