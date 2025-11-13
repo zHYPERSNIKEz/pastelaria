@@ -14,7 +14,7 @@ let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
  * Salva o carrinho no localStorage e mostra o aside.
  * @param {Array} itens - Array de objetos de item a serem adicionados.
  */
-function adicionarAoCarrinho(itens) {
+export function adicionarAoCarrinho(itens) {
     // Para cada item novo que estamos tentando adicionar
     itens.forEach(novoItem => {
         // Procurar se um item idêntico (mesmo nome e sabor) já existe no carrinho

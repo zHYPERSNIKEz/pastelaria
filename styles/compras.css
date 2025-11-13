@@ -14,7 +14,7 @@ body {
     & .header-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center; /* Centraliza para mobile */
         max-width: 1200px;
         margin: 0 auto;
     }
@@ -22,6 +22,8 @@ body {
     & .logo {
         width: 100px;
         height: auto;
+        position: static; /* Sobrescreve o position: absolute */
+        transform: none; /* Remove a centralização do transform */
     }
 
     & h1 {
@@ -278,5 +280,9 @@ body {
     #carrinho-container{
         height: 500px;
         overflow-y: auto;
+    }
+
+    .header-compras .header-container {
+        justify-content: space-between; /* Restaura para desktop */
     }
 }
