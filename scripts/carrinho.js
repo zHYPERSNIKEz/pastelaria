@@ -5,7 +5,7 @@ const asideCarrinho = document.querySelector('aside.carrinho');
 
 // ############# ESTADO (DADOS) #############
 // Carrega o carrinho do localStorage ou inicia um array vazio
-let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
 // ############# FUNÇÕES #############
 
@@ -32,7 +32,7 @@ export function adicionarAoCarrinho(itens) {
     });
 
     // Salva o carrinho atualizado no localStorage
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
     
     console.log('Carrinho atualizado:', carrinho);
     alert('Itens adicionados ao carrinho!');

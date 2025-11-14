@@ -4,13 +4,13 @@ const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10 minutos em milissegundos
 let inactivityTimer;
 
 /**
- * Limpa o carrinho no localStorage.
+ * Limpa o carrinho no sessionStorage.
  */
 function clearCart() {
     // Verifica se há um carrinho antes de tentar limpar e notificar
-    if (localStorage.getItem('carrinho')) {
+    if (sessionStorage.getItem('carrinho')) {
         console.log('Limpando carrinho por inatividade ou fechamento da página.');
-        localStorage.removeItem('carrinho');
+        sessionStorage.removeItem('carrinho');
         // Opcional: Adicionar um alerta para o usuário, embora possa não ser visto se a página estiver fechando.
         // alert('Seu carrinho foi limpo devido à inatividade.');
     }
@@ -36,7 +36,7 @@ function stopInactivityTimer() {
 
 // Adiciona um listener para o evento 'unload', que ocorre quando a página está sendo fechada.
 // Isso garante que o carrinho seja limpo ao fechar a aba ou o navegador.
-window.addEventListener('unload', clearCart);
+// window.addEventListener('unload', clearCart);
 
 // Adiciona um listener para o evento 'visibilitychange', que detecta quando o usuário
 // sai ou volta para a aba do navegador.

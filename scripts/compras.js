@@ -8,14 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalizarPedidoBtn = document.getElementById('finalizar-pedido');
     const nomeInput = document.getElementById('nome');
     const enderecoInput = document.getElementById('endereco');
+    const referenciaInput = document.getElementById('referencia');
     const formaPagamentoSelect = document.getElementById('forma-pagamento');
     const trocoInput = document.getElementById('troco');
 
     // Carrega o carrinho do localStorage ou inicia um array vazio
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
     function salvarCarrinho() {
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
     }
 
     function renderCarrinho() {
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const referencia = referenciaInput.value.trim();
         const formaPagamento = formaPagamentoSelect.options[formaPagamentoSelect.selectedIndex].text;
         const troco = trocoInput.value.trim();
 
@@ -143,8 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mensagem += `\n*Total do Pedido:* ${totalPedido}\n\n`;
         mensagem += `*Cliente:* ${nome}\n`;
-        mensagem += `*Endereço de Entrega:*\n${endereco}\n\n`;
-        mensagem += `*Forma de Pagamento:* ${formaPagamento}\n`;
+        mensagem += `*Endereço de Entrega:*\n${endereco}\n`;
+        if (referencia) {
+            mensagem += `*Ponto de Referência:*\n${referencia}\n`;
+        }
+        mensagem += `\n*Forma de Pagamento:* ${formaPagamento}\n`;
 
         if (formaPagamentoSelect.value === 'dinheiro' && troco) {
             mensagem += `*Troco para:* R$ ${troco}\n`;
