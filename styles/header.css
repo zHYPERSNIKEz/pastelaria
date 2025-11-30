@@ -39,9 +39,9 @@ header {
     /* Removed display: none; */
 }
 
-@media (min-width: 700px){
+@media (min-width: 768px){
     header {
-        min-height: 750px;
+        min-height: 250px;
     }
     #bg-video {
         width: 100%;

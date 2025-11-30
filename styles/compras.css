@@ -262,6 +262,10 @@ body {
         font-size: 0.9rem;
     }
 
+    #carrinho-summary .summary-actions{
+        flex-direction: row;
+    }
+
     #carrinho-summary .summary-total {
         font-size: 1.1rem; /* Reduz o tamanho da fonte */
         margin-bottom: 1rem;
